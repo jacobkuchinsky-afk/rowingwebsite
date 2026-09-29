@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Local tooling
+.claude/
+.vercel/
+
+# Original Claude Design export (reference only; not part of the site)
+design-source/

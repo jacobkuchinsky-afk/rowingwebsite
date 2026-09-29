@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRC High Performance</title>
+<meta name="description" content="Texas Rowing Center High Performance — a nationally recognized training center preparing United States rowers for international competition.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<script src="js/scull.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="trc-ripple" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.006 0.028" numOctaves="2" seed="4">
+      <animate attributeName="baseFrequency" dur="14s" values="0.006 0.028;0.009 0.036;0.006 0.028" repeatCount="indefinite"/>
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="8"/>
+  </filter>
+  <filter id="trc-goo" x="-20%" y="-30%" width="140%" height="160%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="22" result="b"/>
+    <feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -12"/>
+  </filter>
+  <symbol id="wave-small" viewBox="0 0 56 8"><path d="M0 4 Q3.5 1 7 4 T14 4 T21 4 T28 4 T35 4 T42 4 T49 4 T56 4" fill="none" stroke="oklch(0.62 0.2 25)" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="wave-line" viewBox="0 0 240 12"><path d="M0 6 Q7.5 1 15 6 T30 6 T45 6 T60 6 T75 6 T90 6 T105 6 T120 6 T135 6 T150 6 T165 6 T180 6 T195 6 T210 6 T225 6 T240 6" fill="none" stroke="oklch(0.62 0.2 25)" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="wave-hero-back" viewBox="0 0 1200 56" preserveAspectRatio="none"><path d="M0 30 Q75 10 150 30 T300 30 T450 30 T600 30 T750 30 T900 30 T1050 30 T1200 30 V56 H0Z" fill="#fff"/></symbol>
+  <symbol id="wave-hero-front" viewBox="0 0 1200 56" preserveAspectRatio="none"><path d="M0 40 Q100 22 200 40 T400 40 T600 40 T800 40 T1000 40 T1200 40 V56 H0Z" fill="#fff"/></symbol>
+  <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<!-- ═══ Navigation ═══ -->
+<nav class="topnav" aria-label="Main">
+  <a class="brand" href="#/" data-go="home" aria-label="TRC High Performance — home">
+    <img class="brand-logo" src="assets/logo.png" alt="" width="56" height="56">
+    <span class="brand-text"><b>TRC</b><span>High Performance</span></span>
+  </a>
+  <div class="nav-wide">
+    <div class="nav-items">
+      <a class="nav-item" href="#/about" data-go="about"><span class="nav-blob"></span><span class="nav-label">About</span><span class="nav-wave"><svg width="56" height="8"><use href="#wave-small" width="100%" height="100%"/></svg></span></a>
+      <a class="nav-item" href="#/team" data-go="team"><span class="nav-blob"></span><span class="nav-label">The Team</span><span class="nav-wave"><svg width="56" height="8"><use href="#wave-small" width="100%" height="100%"/></svg></span></a>
+      <a class="nav-item" href="#/support" data-go="support"><span class="nav-blob"></span><span class="nav-label">Support</span><span class="nav-wave"><svg width="56" height="8"><use href="#wave-small" width="100%" height="100%"/></svg></span></a>
+      <a class="nav-item" href="#contact" data-go="contact"><span class="nav-blob"></span><span class="nav-label">Contact</span><span class="nav-wave"><svg width="56" height="8"><use href="#wave-small" width="100%" height="100%"/></svg></span></a>
+      <a class="nav-item" href="#/media" data-go="media"><span class="nav-blob"></span><span class="nav-label">Media</span><span class="nav-wave"><svg width="56" height="8"><use href="#wave-small" width="100%" height="100%"/></svg></span></a>
+    </div>
+    <a class="nav-donate" href="https://www.paypal.com/donate?token=xtaDlkvoYF4kbxfGXdZJGg4ZqZucbc_5DAyhfhCFrGZaPYqY91KdYOhDIyv1cQuYLGRKKDfCRXPZta2S" target="_blank" rel="noopener">Donate</a>
+  </div>
+  <div class="nav-narrow">
+    <a class="nav-donate" href="https://www.paypal.com/donate?token=xtaDlkvoYF4kbxfGXdZJGg4ZqZucbc_5DAyhfhCFrGZaPYqY91KdYOhDIyv1cQuYLGRKKDfCRXPZta2S" target="_blank" rel="noopener">Donate</a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="menu-overlay" id="menu" hidden>
+  <button class="menu-btn menu-close" type="button" aria-label="Close menu" data-menu-close>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="#/about" data-go="about">About</a>
+  <a href="#/team" data-go="team">The Team</a>
+  <a href="#/support" data-go="support">Support</a>
+  <a href="#contact" data-go="contact">Contact</a>
+  <a href="#/media" data-go="media">Media</a>
+</div>
+
+<main>
+
+<!-- ═══ HOME ═══ -->
+<div data-page="home">
+  <header class="hero-wrap">
+    <div class="hero hero--home">
+      <div class="hero-media">
+        <img src="assets/hero-1200.jpg" srcset="assets/hero-800.jpg 800w, assets/hero-1200.jpg 1200w, assets/hero-2000.jpg 2000w" sizes="100vw" alt="TRC rowers racing a quad on Lady Bird Lake" fetchpriority="high">
+      </div>
+      <div class="hero-shimmer" aria-hidden="true"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-home-copy">
+        <h1>Preparing American rowers for success <span>— today and tomorrow</span></h1>
+      </div>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="intro-head">
+      <h2>Texas Rowing Center - High Performance</h2>
+      <p>We are a nationally recognized high performance training center for rowing that prepares United States athletes for success in international competition.</p>
+    </div>
+    <div class="tt-grid" data-reveal>
+      <div class="tt-card tt-card--today">
+        <i aria-hidden="true"></i>
+        <b>Today</b>
+        <p>We prepare youth athletes for success in regional and national championships</p>
+      </div>
+      <div class="tt-card tt-card--tomorrow">
+        <i aria-hidden="true"></i>
+        <b>Tomorrow</b>
+        <p>Our athletes move on to compete in collegiate and world-stage events</p>
+      </div>
+    </div>
+    <p class="intro-foot">TRC HP is a pioneering high-performance club, setting an example by providing an environment for athletes to train at the highest level and by investing in the future of our sport.</p>
+  </section>
+
+  <section class="band">
+    <div class="band-card">
+      <i aria-hidden="true" style="right:-8%;top:-30%;width:52%;aspect-ratio:1;background:var(--blob);animation:morph 16s ease-in-out infinite"></i>
+      <i aria-hidden="true" style="right:18%;bottom:-18%;width:22%;aspect-ratio:1;background:oklch(0.86 0.08 240 / .35);animation:morph 11s ease-in-out infinite reverse"></i>
+      <div class="band-col">
+        <h2>Support Us</h2>
+        <p class="lead">We rely on your support to keep rowing accessible to everyone.</p>
+      </div>
+      <div class="band-col band-col--cta">
+        <p class="sub">Find more information on individual donations or corporate sponsorships below.</p>
+        <a class="btn" href="#/support" data-go="donate">Support TRC HP <svg width="18" height="18"><use href="#arrow-right" width="100%" height="100%"/></svg></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<div data-page="about" hidden>
+  <header class="hero-wrap">
+    <div class="hero hero--page">
+      <div class="hero-media"><div class="slot slot--dark" data-label="About hero photo — the boathouse on Lady Bird Lake"></div></div>
+      <div class="hero-shimmer" aria-hidden="true"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-goo-wrap" aria-hidden="true"><div class="hero-goo"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="hero-copy">
+        <span class="crumb"><span>TRC HP</span><span aria-hidden="true">/</span><span>About</span></span>
+        <h1>About TRC</h1>
+        <span class="wave-line" aria-hidden="true"><svg width="240" height="12"><use href="#wave-line" width="100%" height="100%"/></svg></span>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span><svg width="14" height="14"><use href="#arrow-down" width="100%" height="100%"/></svg></span>Scroll</div>
+      <div class="hero-waves" aria-hidden="true"><svg><use href="#wave-hero-back" width="100%" height="100%"/></svg><svg><use href="#wave-hero-front" width="100%" height="100%"/></svg></div>
+    </div>
+  </header>
+
+  <section class="river" data-river>
+    <div class="river-track" data-river-track aria-hidden="true">
+      <svg data-river-svg>
+        <path class="river-bed" fill="none" stroke-linecap="round"/>
+        <path class="river-dots" fill="none" stroke-linecap="round"/>
+        <path class="river-progress" fill="none" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+      </svg>
+      <span class="river-stop"></span><span class="river-stop"></span><span class="river-stop"></span>
+      <div class="river-boat" data-river-boat></div>
+    </div>
+
+    <div class="stops">
+      <article class="stop" data-stop>
+        <span class="kicker">Stop 1</span>
+        <h2>Origins</h2>
+        <p class="lead">Texas Rowing Center Juniors was started in 2004 to support youth rowers in their quest towards collegiate recruitment.</p>
+        <p class="prose">As an organization, we were founded in ______ 2002 and are a 501(c)(3) nonprofit corporation. We are located on Lady Bird Lake in downtown Austin, Texas. TRC HP is a part of Texas Rowing Center, but trains separately and is funded separately from the recreational, juniors, and masters programs that currently make up TRC.</p>
+      </article>
+      <article class="stop" data-stop>
+        <span class="kicker">Stop 2</span>
+        <h2>Mission</h2>
+        <p class="lead">TRC High Performance is a nationally recognized training center that prepares United States rowers for success at the World Championships and Olympic Games by creating an environment with excellent coaching, training opportunities, equipment, and financial support for our athletes.</p>
+        <p class="prose">As a not-for-profit organization, we use donations to fund the training and competitions of our athletes. World-class rowing takes an unparalleled level of commitment to training, which does not allow for a traditional 9-5 work schedule. TRC HP covers all costs of training and racing for the athletes.</p>
+      </article>
+      <article class="stop" data-stop>
+        <span class="kicker">Stop 3</span>
+        <h2>Values</h2>
+        <div class="values" data-values><span>Dedication.</span><span>Humility.</span><span>Respect.</span></div>
+        <p class="prose">TRC HP expects dedication, humility, and respect from all athletes, coaches, and staff. We believe that an environment that is supportive of every party will produce the best people and the best results.</p>
+        <p class="prose">While high-performance sport is necessarily exclusive, TRC HP is committed to supporting athletes regardless of their race, gender, sexual orientation, age, or socio-economic background.</p>
+        <p class="prose">TRC HP is also committed to being an active local community member and growing the sport of rowing through adjacent projects.</p>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ TEAM ═══ -->
+<div data-page="team" hidden>
+  <header class="hero-wrap">
+    <div class="hero hero--page">
+      <div class="hero-media"><div class="slot slot--dark" data-label="Team hero photo — the full squad on the dock"></div></div>
+      <div class="hero-shimmer" aria-hidden="true"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-goo-wrap" aria-hidden="true"><div class="hero-goo"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="hero-copy">
+        <span class="crumb"><span>TRC HP</span><span aria-hidden="true">/</span><span>The Team</span></span>
+        <h1>The Team</h1>
+        <span class="wave-line" aria-hidden="true"><svg width="240" height="12"><use href="#wave-line" width="100%" height="100%"/></svg></span>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span><svg width="14" height="14"><use href="#arrow-down" width="100%" height="100%"/></svg></span>Scroll</div>
+      <div class="hero-waves" aria-hidden="true"><svg><use href="#wave-hero-back" width="100%" height="100%"/></svg><svg><use href="#wave-hero-front" width="100%" height="100%"/></svg></div>
+    </div>
+  </header>
+
+  <!-- Squads and athletes are rendered from TEAM in js/site.js -->
+  <section class="team" data-team></section>
+
+  <section class="coaches-wrap">
+    <div class="coaches">
+      <h2>Coaches</h2>
+      <div class="coach">
+        <div class="coach-photo"><div class="slot" data-label="Coach"></div></div>
+        <div class="coach-meta"><b>Coach name</b><span>Head Coach</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ SUPPORT ═══ -->
+<div data-page="support" hidden>
+  <header class="hero-wrap">
+    <div class="hero hero--page">
+      <div class="hero-media"><div class="slot slot--dark" data-label="Support hero photo — athletes racing internationally"></div></div>
+      <div class="hero-shimmer" aria-hidden="true"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-goo-wrap" aria-hidden="true"><div class="hero-goo"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="hero-copy">
+        <span class="crumb"><span>TRC HP</span><span aria-hidden="true">/</span><span>Support</span></span>
+        <h1>Support Us</h1>
+        <span class="wave-line" aria-hidden="true"><svg width="240" height="12"><use href="#wave-line" width="100%" height="100%"/></svg></span>
+        <p>We rely on your support so that we can compete on the international level.</p>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span><svg width="14" height="14"><use href="#arrow-down" width="100%" height="100%"/></svg></span>Scroll</div>
+      <div class="hero-waves" aria-hidden="true"><svg><use href="#wave-hero-back" width="100%" height="100%"/></svg><svg><use href="#wave-hero-front" width="100%" height="100%"/></svg></div>
+    </div>
+  </header>
+
+  <section class="funds-intro">
+    <p>Find more information on individual donations or corporate sponsorships below.</p>
+    <div class="funds" role="radiogroup" aria-label="Choose a fund">
+      <button class="fund" type="button" role="radio" aria-checked="true" data-fund="athlete">
+        <i aria-hidden="true"></i>
+        <span class="fund-head"><b>Donate</b><span class="fund-radio" aria-hidden="true"></span></span>
+        <span class="fund-line">100% of your donations go towards supporting our athletes.</span>
+      </button>
+      <button class="fund" type="button" role="radio" aria-checked="false" data-fund="community">
+        <i aria-hidden="true"></i>
+        <span class="fund-head"><b>Community</b><span class="fund-radio" aria-hidden="true"></span></span>
+        <span class="fund-line">100% of donations to TRC HP’s Community Fund are used to expand access to rowing at TRC.</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="fund-panel" data-fund-panel="athlete">
+    <div class="fund-copy">
+      <h2>TRC High Performance is committed to providing each athlete with everything they need to succeed at the highest level.</h2>
+      <p class="prose">Some of our athletes may receive limited funding directly from USRowing, but it is not nearly enough to cover everything that training like a professional athlete entails. And USRowing does not currently support TRC HP financially in any way.</p>
+      <p class="prose">TRC HP pays for all of the athletes’ costs incurred during racing throughout the year, the world-class equipment they use throughout the year, the best coaching in the United States, and physical and mental support services such as physical therapy and mental performance coaching.</p>
+      <p class="prose">All together, this support allows our athletes to have less stress about money AND reduce their hours at work, so they spend more time and energy on the one thing that earns medals: training.</p>
+      <div class="donate-block">
+        <span class="kicker">Donate Online</span>
+        <a class="btn btn--lg" href="https://www.paypal.com/donate?token=xtaDlkvoYF4kbxfGXdZJGg4ZqZucbc_5DAyhfhCFrGZaPYqY91KdYOhDIyv1cQuYLGRKKDfCRXPZta2S" target="_blank" rel="noopener">Donate with PayPal</a>
+        <p class="fine">Donations to TRC High Performance, Inc. are tax-deductible. We are a registered 501(c)(3) organization. For a copy of our determination letter, contact <a href="mailto:jasper@trchighperformance.org">jasper@trchighperformance.org</a></p>
+      </div>
+    </div>
+    <div class="tank-col">
+      <div class="tank" data-tank>
+        <div class="tank-water" data-tank-water>
+          <svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q75 0 150 20 T300 20 T450 20 T600 20 T750 20 T900 20 T1050 20 T1200 20 V40 H0Z" fill="oklch(0.42 0.19 264)"/></svg>
+          <svg viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q100 4 200 20 T400 20 T600 20 T800 20 T1000 20 T1200 20 V40 H0Z" fill="oklch(0.5 0.19 258)"/></svg>
+          <div></div>
+        </div>
+        <div class="tank-copy">
+          <span>Costs that an athlete is responsible for in one year of domestic and international racing:</span>
+          <b data-tank-text aria-label="$8,000 to $20,000">$0 – $0</b>
+        </div>
+        <!-- Same copy in white, clipped to the water so text flips color at the waterline -->
+        <div class="tank-wet" data-tank-wet aria-hidden="true">
+          <div class="tank-copy">
+            <span>Costs that an athlete is responsible for in one year of domestic and international racing:</span>
+            <b data-tank-text>$0 – $0</b>
+          </div>
+        </div>
+      </div>
+      <p>TRC HP aims to cover ALL of these costs, and even flip this number, so athletes can afford to work less, and spend those hours training more to strive for the podium.</p>
+    </div>
+  </section>
+
+  <section class="fund-panel" data-fund-panel="community" hidden>
+    <div class="fund-copy">
+      <p class="big">TRC HP’s mission is to prepare American rowers for success. While one part of that involves supporting our athletes today who are already at the elite level, we know that we can contribute to the success of National Teams of tomorrow by expanding opportunities for anyone that wants to try our sport.</p>
+      <p class="prose">Texas Rowing Center already is doing amazing work in this field. TRC HP’s Community Fund aims to support the existing programming and expand with new projects.</p>
+      <!-- TODO: link the Vision 2024 page -->
+      <p class="prose">For more information on TRC HP’s vision, please see our <a href="#" data-todo style="font-weight:700">Vision 2024 page</a>.</p>
+    </div>
+    <div class="sponsor-card">
+      <i class="morph" aria-hidden="true"></i>
+      <span class="kicker">Cost to sponsor one youth athlete per semester</span>
+      <b>$1,150</b>
+      <a class="btn" href="https://www.paypal.com/donate/?hosted_button_id=6A5RY988MWMGS&amp;Z3JncnB0=" target="_blank" rel="noopener">DONATE TO THE COMMUNITY FUND</a>
+      <p class="fine">Donations to TRC High Performance, Inc. are tax-deductible. We are a registered 501(c)(3) organization. For a copy of our determination letter, contact <a href="mailto:jasper@trchighperformance.org">jasper@trchighperformance.org</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- ═══ MEDIA ═══ -->
+<div data-page="media" hidden>
+  <header class="hero-wrap">
+    <div class="hero hero--page">
+      <div class="hero-media"><div class="slot slot--dark" data-label="Media hero photo — race-day action shot"></div></div>
+      <div class="hero-shimmer" aria-hidden="true"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-goo-wrap" aria-hidden="true"><div class="hero-goo"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="hero-copy">
+        <span class="crumb"><span>TRC HP</span><span aria-hidden="true">/</span><span>Media</span></span>
+        <h1>Media</h1>
+        <span class="wave-line" aria-hidden="true"><svg width="240" height="12"><use href="#wave-line" width="100%" height="100%"/></svg></span>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span><svg width="14" height="14"><use href="#arrow-down" width="100%" height="100%"/></svg></span>Scroll</div>
+      <div class="hero-waves" aria-hidden="true"><svg><use href="#wave-hero-back" width="100%" height="100%"/></svg><svg><use href="#wave-hero-front" width="100%" height="100%"/></svg></div>
+    </div>
+  </header>
+
+  <!-- Gallery tiles are rendered from GALLERY in js/site.js -->
+  <section class="gallery-wrap"><div class="gallery" data-gallery></div></section>
+
+  <section class="band">
+    <div class="band-card signup-card">
+      <i aria-hidden="true"></i>
+      <div class="band-col">
+        <h2>Join the Crew</h2>
+        <p class="lead">Subscribe here to receive the inside scoop — updates on our training, information about upcoming races, and photos, videos, and commentary from the team.</p>
+      </div>
+      <form class="signup" data-signup>
+        <div class="signup-row">
+          <input type="email" name="email" required placeholder="Email address" aria-label="Email address" autocomplete="email">
+          <button type="submit">Sign Up</button>
+          <span class="bubbles" aria-hidden="true"></span>
+        </div>
+        <small>This info is not shared with anyone outside of TRC HP</small>
+      </form>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ═══ Up next ═══ -->
+<section class="up-next">
+  <button type="button" data-next>
+    <svg class="up-next-wave" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1200 V14 Q1125 34 1050 14 T900 14 T750 14 T600 14 T450 14 T300 14 T150 14 T0 14Z" fill="#fff"/></svg>
+    <span class="up-next-text">
+      <span class="kicker" data-next-kicker>Up next</span>
+      <span class="up-next-label" data-next-label>About Us</span>
+    </span>
+    <span class="up-next-orb" aria-hidden="true">
+      <i></i>
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path data-next-icon d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </button>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer class="footer" id="contact">
+  <div class="footer-card">
+    <i aria-hidden="true"></i>
+    <div class="footer-grid">
+      <div>
+        <h2>Contact</h2>
+        <address>Texas Rowing Center<br>1541 W Cesar Chavez St<br>Austin, TX 78703</address>
+      </div>
+      <div class="contact">
+        <span>Partnerships and General Inquiries</span>
+        <a href="mailto:jasper@texasrowingcenter.com">jasper@texasrowingcenter.com</a>
+        <button class="copy-btn" type="button" data-copy="jasper@texasrowingcenter.com"><span>Copy email</span></button>
+      </div>
+      <div class="contact">
+        <span>Head Coach</span>
+        <a href="mailto:peter@texasrowingcenter.com">peter@texasrowingcenter.com</a>
+        <button class="copy-btn" type="button" data-copy="peter@texasrowingcenter.com"><span>Copy email</span></button>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>TRC High Performance · 501(c)(3) nonprofit</span>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#/about" data-go="about">About</a>
+        <a href="#/team" data-go="team">The Team</a>
+        <a href="#/support" data-go="support">Support</a>
+        <a href="#contact" data-go="contact">Contact</a>
+        <a href="#/media" data-go="media">Media</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ Page transition: a wave sweeps up while a scull rows across ═══ -->
+<div class="transition" aria-hidden="true" data-transition>
+  <div class="transition-edge transition-edge--top">
+    <svg viewBox="0 0 1200 140" preserveAspectRatio="none"><path d="M0 80 Q150 30 300 80 T600 80 T900 80 T1200 80 V140 H0Z" fill="oklch(0.86 0.08 240)"/></svg>
+    <svg viewBox="0 0 1200 140" preserveAspectRatio="none"><path d="M0 100 Q100 60 200 100 T400 100 T600 100 T800 100 T1000 100 T1200 100 V140 H0Z" fill="oklch(0.42 0.19 264)"/></svg>
+  </div>
+  <div class="transition-body">
+    <span class="transition-title"><span>Rowing to</span><b data-transition-label></b></span>
+    <div class="transition-boat" data-transition-boat></div>
+  </div>
+  <div class="transition-edge transition-edge--bottom">
+    <svg viewBox="0 0 1200 140" preserveAspectRatio="none"><path d="M0 100 Q150 50 300 100 T600 100 T900 100 T1200 100 V140 H0Z" fill="oklch(0.42 0.19 264)"/></svg>
+  </div>
+</div>
+
+<div class="visually-hidden" aria-live="polite" data-announce></div>
+</body>
+</html>
