@@ -3,14 +3,6 @@
   'use strict';
 
   // ── Content ──────────────────────────────────────────────
-  // Fill in names, boat classes, and photo paths (e.g. 'assets/team/jane.jpg') as they come in.
-  const TBD = { name: 'Athlete name', boat: 'Boat class', photo: '' };
-  const TEAM = [
-    { name: 'Varsity Men', id: 'vm', athletes: [TBD, TBD, TBD, TBD] },
-    { name: 'Varsity Women', id: 'vw', athletes: [TBD, TBD, TBD, TBD] },
-    { name: 'Novice Men', id: 'nm', athletes: [TBD, TBD, TBD, TBD] },
-    { name: 'Novice Women', id: 'nw', athletes: [TBD, TBD, TBD, TBD] },
-  ];
   // rows × cols on wide screens; everything collapses to 1×1 on phones.
   const GALLERY = [
     { rows: 2, cols: 2, label: 'Feature photo or video still', photo: '' },
@@ -24,9 +16,9 @@
     { rows: 1, cols: 1, label: 'Photo', photo: '' },
   ];
 
-  const PAGES = ['home', 'about', 'team', 'support', 'media'];
-  const LABELS = { home: 'Home', about: 'About Us', team: 'The Team', support: 'Support Us', media: 'Media' };
-  const TITLES = { home: 'TRC High Performance', about: 'About · TRC HP', team: 'The Team · TRC HP', support: 'Support Us · TRC HP', media: 'Media · TRC HP' };
+  const PAGES = ['home', 'about', 'support', 'media'];
+  const LABELS = { home: 'Home', about: 'About Us', support: 'Support Us', media: 'Media' };
+  const TITLES = { home: 'TRC High Performance', about: 'About · TRC HP', support: 'Support Us · TRC HP', media: 'Media · TRC HP' };
 
   // ── Helpers ──────────────────────────────────────────────
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -37,35 +29,8 @@
   const reducedMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isWide = () => window.innerWidth >= 720;
   const slot = (label, photo, alt) => `<div class="slot" data-label="${esc(label)}">${photo ? `<img src="${esc(photo)}" alt="${esc(alt || '')}" loading="lazy">` : ''}</div>`;
-  const WAVE = '<span class="wave-line" aria-hidden="true"><svg width="240" height="12"><use href="#wave-line" width="100%" height="100%"/></svg></span>';
 
   // ── Render data-driven sections ──────────────────────────
-  function renderTeam() {
-    const host = $('[data-team]');
-    let k = 0;
-    const chips = TEAM.map((sq) => `<button class="chip" type="button" data-jump="squad-${sq.id}">${esc(sq.name)}</button>`).join('');
-    const squads = TEAM.map((sq) => {
-      const cards = sq.athletes.map((a) => {
-        const i = k++;
-        return `<div class="athlete" style="animation-duration:${5 + (i % 3)}s;animation-delay:${-i * 0.7}s">
-          <div class="athlete-photo"><div style="animation-duration:${9 + (i % 4) * 2}s">${slot('Athlete photo', a.photo, a.name)}</div><i aria-hidden="true"></i></div>
-          <div class="athlete-meta"><b>${esc(a.name)}</b><span>${esc(a.boat)}</span></div>
-        </div>`;
-      }).join('');
-      return `<div class="squad" id="squad-${sq.id}">
-        <div class="squad-head"><h2>${esc(sq.name)}</h2>${WAVE}</div>
-        <div class="athletes">${cards}</div>
-      </div>`;
-    }).join('');
-    host.innerHTML = `<div class="chips">${chips}</div>${squads}`;
-    host.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-jump]');
-      if (!b) return;
-      const el = document.getElementById(b.dataset.jump);
-      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 24, behavior: reducedMotion ? 'auto' : 'smooth' });
-    });
-  }
-
   function renderGallery() {
     $('[data-gallery]').innerHTML = GALLERY.map((p, i) =>
       `<div class="tile" data-rows="${p.rows}" data-cols="${p.cols}" style="animation-duration:${6 + (i % 3)}s;animation-delay:${-i * 0.9}s">${slot(p.label, p.photo, p.label)}</div>`
@@ -314,7 +279,6 @@
 
   // ── Boot ─────────────────────────────────────────────────
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  renderTeam();
   renderGallery();
   new Scull(river.boat, { mode: 'scroll', active: () => page === 'about' });
   new Scull(tBoat, { mode: 'time', dark: true, rate: 30, active: () => transitioning });

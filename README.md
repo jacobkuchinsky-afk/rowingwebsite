@@ -5,9 +5,9 @@ Static site for Texas Rowing Center – High Performance. Plain HTML, CSS, and J
 ## Structure
 
 ```
-index.html        All pages (Home, About, The Team, Support, Media), switched with #/ routes
+index.html        All pages (Home, About, Support, Media), switched with #/ routes
 css/site.css      Styles and animations
-js/site.js        Routing, page transition, scroll effects, team + gallery data
+js/site.js        Routing, page transition, scroll effects, gallery data
 js/scull.js       Animated rowing scull
 assets/           Hero photo (3 sizes), logo, favicons
 favicon.ico
@@ -16,8 +16,8 @@ vercel.json       Vercel static hosting config
 
 ## Editing content
 
-- **Athletes and gallery photos:** edit the `TEAM` and `GALLERY` lists at the top of `js/site.js`.
-- **Page header and coach photos:** put an `<img src="...">` inside the matching `.slot` element in `index.html`.
+- **Gallery photos:** edit the `GALLERY` list at the top of `js/site.js`.
+- **Page header photos:** put an `<img src="...">` inside the matching `.slot` element in `index.html`.
 - **Donation links:** search `paypal.com` in `index.html`.
 
 ## Run locally

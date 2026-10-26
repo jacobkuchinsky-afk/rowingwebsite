@@ -341,44 +341,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
   .river-boat { width: 130px; height: 42px; margin: -21px 0 0 -65px; }
 }
 
-/* ── Team ──────────────────────────────────────────────── */
-.team { padding: clamp(60px, 8vw, 110px) var(--gutter); display: flex; flex-direction: column; gap: clamp(64px, 8vw, 110px); }
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
-.chip {
-  border: 0; cursor: pointer; border-radius: 999px; padding: 14px 24px; font: 700 15px/1 var(--font-body);
-  background: var(--light); color: var(--navy); transition: background .2s, color .2s;
-}
-.chip:hover { background: var(--royal); color: #fff; }
-.squad { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 44px); scroll-margin-top: 24px; }
-.squad-head { display: flex; align-items: center; gap: 18px; }
-.squad-head h2, .coaches h2 { font-size: clamp(36px, 4vw, 60px); line-height: 1; color: var(--navy); }
-.squad-head .wave-line { width: 90px; height: 12px; }
-.athletes { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: clamp(28px, 3vw, 48px) clamp(20px, 2.4vw, 36px); }
-.athlete { display: flex; flex-direction: column; gap: 16px; animation: bob 5s ease-in-out infinite; }
-.athlete-photo { position: relative; aspect-ratio: 4 / 5; }
-.athlete-photo > div {
-  position: absolute; inset: 0; overflow: hidden; background: var(--light);
-  border-radius: 44% 56% 50% 50% / 46% 44% 56% 54%; animation: morph 9s ease-in-out infinite;
-  transition: transform .6s cubic-bezier(.3, 1.5, .5, 1);
-}
-.athlete:hover .athlete-photo > div { transform: scale(1.05); }
-.athlete-photo > i { position: absolute; right: 6%; bottom: 6%; width: 18%; aspect-ratio: 1; border-radius: 50%; background: var(--sky); transition: background .3s; }
-.athlete:hover .athlete-photo > i { background: var(--red); }
-.athlete-meta { display: flex; flex-direction: column; gap: 6px; padding-left: 6px; }
-.athlete-meta b { font: 400 24px/1.1 var(--font-heading); color: var(--navy); }
-.athlete-meta span, .coach-meta span { font: 600 14px/1.2 var(--font-body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.coaches-wrap { padding: 0 14px clamp(60px, 8vw, 110px); }
-.coaches {
-  border-radius: var(--radius); background: var(--light); padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 58px);
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 40px; align-items: center;
-}
-.coach { display: flex; align-items: center; gap: 24px; }
-.coach-photo { position: relative; width: 140px; height: 140px; flex: none; overflow: hidden; background: #fff; animation: morph 9s ease-in-out infinite; }
-.coach-photo .slot { background: #fff; }
-.coach-meta { display: flex; flex-direction: column; gap: 8px; }
-.coach-meta b { font: 400 28px/1.1 var(--font-heading); color: var(--navy); }
-.coach-meta span { color: var(--red); }
-
 /* ── Support ───────────────────────────────────────────── */
 .funds-intro { padding: clamp(60px, 8vw, 110px) var(--gutter) 0; display: flex; flex-direction: column; gap: 36px; }
 .funds-intro > p { max-width: 40ch; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.4; color: var(--navy); }
